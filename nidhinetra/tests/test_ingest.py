@@ -1,17 +1,17 @@
 import pytest
 from pathlib import Path
-from core.ingest import extract_text_from_pdf, ingest_pdf_to_chroma, search_documents
+from nidhinetra.core.ingest import extract_text_from_pdf, ingest_pdf_to_chroma, search_documents
 
 
 @pytest.mark.skipif(
-    not Path(r"C:\Users\kashi\Yawaris\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf").exists(),
+    not Path(r"C:\Users\kashi\Yawaris\nidhinetra-clean\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf").exists(),
     reason="Sample return file not found"
 )
 def test_ingest_and_search():
     """End-to-end test: ingest a real PDF and query Chroma vector DB."""
     print("\n⚙️ Ingesting real tax document into Chroma...")
     count = ingest_pdf_to_chroma(
-        pdf_path=r"C:\Users\kashi\Yawaris\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf",
+        pdf_path=r"C:\Users\kashi\Yawaris\nidhinetra-clean\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf",
         namespace="llc_returns",
         user_id="user_dhirendra",
         year="2024"
@@ -32,7 +32,7 @@ def test_ingest_and_search():
 
 def test_extract_text_from_pdf():
     """Unit test: Extract text from sample PDF."""
-    path = Path(r"C:\Users\kashi\Yawaris\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf")
+    path = Path(r"C:\Users\kashi\Yawaris\nidhinetra-clean\nidhinetra\data\returns\LARVYLLC2024TaxReturn.pdf")
     if not path.exists():
         pytest.skip("PDF file not found")
 
