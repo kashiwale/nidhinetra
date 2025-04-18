@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "nidhinetra"
+version = "0.1.0"
+description = ""
+authors = ["Dhirendra Kashiwale <Kashiwale@yahoo.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pdfplumber = "^0.11.6"
+typer = "^0.15.2"
+rich = "^14.0.0"
+streamlit = "^1.44.1"
+dotenv = "^0.9.9"
+chroma = "^0.2.0"
+langchain-chroma = "^0.2.2"
+langchain-community = "^0.3.21"
+langchain-openai = "^0.3.12"
+langchain-core = "^0.3.51"
+pydantic = "^2.11.3"
+langchain = "^0.3.23"
+pymupdf = "^1.25.5"
+pypdf = "^5.4.0"
+pytest = "^8.3.5"
+git-filter-repo = "^2.47.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
