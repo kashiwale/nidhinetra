@@ -1,16 +1,24 @@
 import streamlit as st
+st.set_page_config(page_title="NidhiNetra", layout="wide")
 from pathlib import Path
 from nidhinetra.core.ingest import extract_text_from_pdf, ingest_pdf_to_chroma, search_documents
 from langchain_openai import OpenAIEmbeddings
-import os
 from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
 load_dotenv()
-print("✅ OPENAI_API_KEY:", os.getenv("OPENAI_API_KEY"))
+st.write("API Key present:", bool(os.getenv("OPENAI_API_KEY")))
+
+# Optional: sanity check in dev mode
+if not os.getenv("OPENAI_API_KEY"):
+    st.warning("⚠️ OPENAI_API_KEY not found. Please check your .env file.")
+
 embeddings = OpenAIEmbeddings(
     api_key=os.getenv("OPENAI_API_KEY")
 )
 
-st.set_page_config(page_title="NidhiNetra", layout="wide")
+
 st.title("📂 NidhiNetra - Tax Document Insight Portal")
 
 st.markdown("##### _By Ishani & Arjun_ ✨")
